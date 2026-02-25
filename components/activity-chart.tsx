@@ -74,9 +74,9 @@ export function ActivityChart({ data }: ActivityChartProps) {
                 <stop offset="0%" stopColor="hsl(217, 91%, 53%)" stopOpacity={0.3} />
                 <stop offset="100%" stopColor="hsl(217, 91%, 53%)" stopOpacity={0} />
               </linearGradient>
-              <linearGradient id="fillBlocked" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="hsl(0, 72%, 51%)" stopOpacity={0.3} />
-                <stop offset="100%" stopColor="hsl(0, 72%, 51%)" stopOpacity={0} />
+              <linearGradient id="fillPassed" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="hsl(142, 71%, 45%)" stopOpacity={0.3} />
+                <stop offset="100%" stopColor="hsl(142, 71%, 45%)" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid
@@ -111,11 +111,11 @@ export function ActivityChart({ data }: ActivityChartProps) {
             />
             <Area
               type="monotone"
-              dataKey="blocked"
-              stroke="hsl(0, 72%, 51%)"
+              dataKey="passed"
+              stroke="hsl(142, 71%, 45%)"
               strokeWidth={2}
-              fill="url(#fillBlocked)"
-              name="Blocked"
+              fill="url(#fillPassed)"
+              name="Redacted & Passed"
             />
           </AreaChart>
         </ResponsiveContainer>

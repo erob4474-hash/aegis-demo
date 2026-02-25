@@ -26,7 +26,7 @@ function CustomTooltip({
   return (
     <div className="glass-panel rounded-lg p-3 text-sm">
       <p className="font-medium text-foreground">{d.name}</p>
-      <p className="text-muted-foreground">{d.value}% of total</p>
+      <p className="text-muted-foreground">{d.value} interception{d.value !== 1 ? "s" : ""}</p>
     </div>
   )
 }
@@ -74,7 +74,7 @@ export function PiiBreakdownChart({ data }: PiiBreakdownChartProps) {
               style={{ backgroundColor: item.fill }}
             />
             <span className="text-muted-foreground">{item.name}</span>
-            <span className="font-mono text-foreground">{item.value}%</span>
+            <span className="font-mono text-foreground">{item.value}</span>
           </div>
         ))}
       </div>

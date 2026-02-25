@@ -1,6 +1,6 @@
 "use client"
 
-import { Shield, FileText, Users, Zap } from "lucide-react"
+import { Shield, FileText, Puzzle, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 import type { KPIData } from "@/lib/aegis-store"
 
@@ -13,31 +13,31 @@ const cards = [
     key: "totalInterceptions" as const,
     label: "Total Interceptions",
     icon: Shield,
-    format: (v: number) => v.toLocaleString(),
+    format: (v: number) => v.toString(),
     accentClass: "text-primary",
     bgClass: "bg-primary/10",
   },
   {
-    key: "activePolicyVersion" as const,
-    label: "Active Policy",
+    key: "activePolicyRules" as const,
+    label: "Active REDACT Rules",
     icon: FileText,
-    format: (v: string) => v,
+    format: (v: number) => v.toString(),
     accentClass: "text-success",
     bgClass: "bg-success/10",
   },
   {
-    key: "protectedUsers" as const,
-    label: "Protected Users",
-    icon: Users,
+    key: "connectedExtensions" as const,
+    label: "Connected Extensions",
+    icon: Puzzle,
     format: (v: number) => v.toString(),
     accentClass: "text-chart-3",
     bgClass: "bg-chart-3/10",
   },
   {
-    key: "systemLatencyMs" as const,
-    label: "System Latency",
-    icon: Zap,
-    format: (v: number) => `${v}ms`,
+    key: "agentUptimeHours" as const,
+    label: "Agent Uptime",
+    icon: Clock,
+    format: (v: number) => `${v}h`,
     accentClass: "text-success",
     bgClass: "bg-success/10",
   },
@@ -63,7 +63,7 @@ export function KPICards({ data }: KPICardsProps) {
               </div>
             </div>
             <p className={`mt-3 text-2xl font-semibold tracking-tight ${card.accentClass}`}>
-              {card.format(value as never)}
+              {card.format(value)}
             </p>
           </motion.div>
         )

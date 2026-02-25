@@ -28,21 +28,9 @@ interface ExtensionInfo {
 
 const mockExtensions: ExtensionInfo[] = [
   {
-    name: "Aegis Shield",
+    name: "Aegis Shield - Universal",
     version: "1.0.0",
     browser: "Chrome",
-    status: "connected",
-  },
-  {
-    name: "Aegis Shield",
-    version: "0.9.0",
-    browser: "Firefox",
-    status: "idle",
-  },
-  {
-    name: "Aegis Shield",
-    version: "1.0.0",
-    browser: "Edge",
     status: "connected",
   },
 ]

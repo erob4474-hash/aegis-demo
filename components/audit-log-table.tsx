@@ -137,12 +137,12 @@ export function AuditLogTable({ logs }: AuditLogTableProps) {
               <th className="px-5 py-3 font-medium">Severity</th>
               <th className="px-5 py-3 font-medium">PII Type</th>
               <th className="hidden px-5 py-3 font-medium md:table-cell">
-                Masked Data
+                Raw Input
+              </th>
+              <th className="hidden px-5 py-3 font-medium lg:table-cell">
+                Masked Output
               </th>
               <th className="px-5 py-3 font-medium">Action</th>
-              <th className="hidden px-5 py-3 font-medium lg:table-cell">
-                Source
-              </th>
               <th className="px-5 py-3 font-medium">Destination</th>
             </tr>
           </thead>
@@ -173,23 +173,16 @@ export function AuditLogTable({ logs }: AuditLogTableProps) {
                     </span>
                   </td>
                   <td className="px-5 py-3 text-foreground">{log.piiType}</td>
-                  <td className="hidden px-5 py-3 font-mono text-muted-foreground md:table-cell">
+                  <td className="hidden max-w-[200px] truncate px-5 py-3 font-mono text-critical/80 md:table-cell">
+                    {log.rawSnippet}
+                  </td>
+                  <td className="hidden max-w-[200px] truncate px-5 py-3 font-mono text-success/80 lg:table-cell">
                     {log.maskedData}
                   </td>
                   <td className="px-5 py-3">
-                    <span
-                      className={cn(
-                        "text-xs font-medium",
-                        log.action === "Blocked"
-                          ? "text-critical"
-                          : "text-success"
-                      )}
-                    >
+                    <span className="text-xs font-medium text-success">
                       {log.action}
                     </span>
-                  </td>
-                  <td className="hidden px-5 py-3 text-muted-foreground lg:table-cell">
-                    {log.source}
                   </td>
                   <td className="px-5 py-3 text-foreground">
                     {log.destination}
