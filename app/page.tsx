@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { Shield } from "lucide-react"
+import { LoginScreen } from "@/components/login-screen"
 import { SidebarNav, type TabId } from "@/components/sidebar-nav"
 import { KPICards } from "@/components/kpi-cards"
 import { ActivityChart } from "@/components/activity-chart"
@@ -27,6 +28,7 @@ const pageVariants = {
 }
 
 export default function AegisDashboard() {
+  const [authenticated, setAuthenticated] = useState(false)
   const [activeTab, setActiveTab] = useState<TabId>("overview")
   const [policy, setPolicy] = useState(DEFAULT_POLICY)
 
@@ -36,6 +38,10 @@ export default function AegisDashboard() {
   const activityFeed = useMemo(() => generateActivityFeed(), [])
   const kpiData = useMemo(() => getKPIData(), [])
   const piiBreakdown = useMemo(() => getPiiBreakdown(), [])
+
+  if (!authenticated) {
+    return <LoginScreen onLogin={() => setAuthenticated(true)} />
+  }
 
   return (
     <div className="flex min-h-screen flex-col bg-background lg:flex-row">
