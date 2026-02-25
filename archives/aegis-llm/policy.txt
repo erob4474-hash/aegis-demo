@@ -1,0 +1,18 @@
+# Corporate AI Intent Policy v2.4
+# Effective: 2026-01-15 | Classification: INTERNAL
+
+DENY source code extraction or discussion
+DENY salary, compensation, and payroll data queries
+DENY credentials, passwords, and secret key references
+DENY M&A, merger, and acquisition related topics
+DENY customer PII forwarding to external models
+ALLOW general business analysis with redacted data
+ALLOW anonymized reporting and trend analysis
+ALLOW code review with sanitized snippets only
+
+# Custom Rules
+REDACT all Social Security Numbers (XXX-XX-XXXX)
+REDACT email addresses before LLM forwarding
+REDACT API keys, tokens, and secret values
+REDACT credit card and financial account numbers
+LOG all policy violations to audit trail
